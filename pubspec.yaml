@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   collection: ^1.19.1
+  flutter_animate: ^4.5.2
 
 dev_dependencies:
   flutter_test:

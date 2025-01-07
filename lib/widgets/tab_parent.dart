@@ -8,12 +8,12 @@ class TabParent extends StatefulWidget {
   const TabParent({
     super.key,
     required this.tabs,
-    this.controller,
+    required this.controller,
     this.tabBuilder = listViewTabBuilder,
   });
 
   final List<TabDefinition> tabs;
-  final ChampionTabController? controller;
+  final ChampionTabController controller;
   final Function(
     BuildContext context,
     ChampionTabController controller,
@@ -26,17 +26,21 @@ class TabParent extends StatefulWidget {
 }
 
 class _TabParentState extends State<TabParent> {
-  late ChampionTabController _controller;
   @override
   void initState() {
     super.initState();
 
-    // Add in a controller if we don't have one.
-    _controller = widget.controller ?? ChampionTabController();
+    widget.controller.addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    widget.controller.removeListener(() => setState(() {}));
   }
 
   @override
   Widget build(BuildContext context) {
-    return widget.tabBuilder(context, _controller, widget.tabs);
+    return widget.tabBuilder(context, widget.controller, widget.tabs);
   }
 }

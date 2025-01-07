@@ -1,5 +1,4 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export "package:champion_tabs/controllers/tab_controller.dart";
+export "package:champion_tabs/models/tab_definition.dart";
+export "package:champion_tabs/widgets/tab_child.dart";
+export "package:champion_tabs/widgets/tab_parent.dart";
